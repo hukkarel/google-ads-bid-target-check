@@ -92,6 +92,10 @@ var CONFIG = {
 var STRETCH_MIN = -0.20;
 var STRETCH_MAX = 0.30;
 
+// Odkaz na web autora. UTM odliší v GA4 návštěvy z e-mailu od přímých.
+var ARTICLE_URL = 'https://karelhuk.cz/blog/bidding-omezeny-rozpocet-zmena-2026';
+var UTM_CONTENT = 'bid-target-check';
+
 // ============================================================================
 //  VSTUPNÍ BOD
 // ============================================================================
@@ -662,13 +666,14 @@ function buildReport(results, range, failures, fixGate) {
   text += textSection('B) TIKAJICI BOMBY', results, 'bombs');
   text += textSection('C) BEZ CILE A USKRCENE', results, 'noTarget');
   text += textSection('D) NELZE URCIT', results, 'unknown');
+  text += '\nSkript: ' + withUtm(ARTICLE_URL, 'email') + '\n';
 
   html += fixesSection(results);
 
   html += '<p style="margin-top:24px;padding-top:12px;border-top:1px solid #ddd;color:#666;font-size:12px">' +
           'Po 17. 8. nesleduj odchylku od cíle — ta klesne k nule právě proto, že změna zafungovala. ' +
           'Sleduj propad konverzí a konverzní hodnoty při stabilní útratě.<br>' +
-          'Skript: karelhuk.cz/blog/bidding-omezeny-rozpocet-zmena-2026</p></div>';
+          'Skript: <a href="' + esc(withUtm(ARTICLE_URL, 'email')) + '" style="color:#666">karelhuk.cz/blog/bidding-omezeny-rozpocet-zmena-2026</a></p></div>';
 
   return { subject: subject, html: html, text: text };
 }
@@ -879,6 +884,13 @@ function fmtNum(n) {
   if (n === null || n === undefined || isNaN(n) || !isFinite(n)) return '—';
   var r = Math.round(n * 100) / 100;
   return r === Math.round(n) ? String(Math.round(n)) : r.toFixed(2);
+}
+
+/** Přidá k odkazu na karelhuk.cz UTM. E-mail jde v GA4 do kanálu Email, ostatní do Referral. */
+function withUtm(url, source) {
+  var medium = source === 'email' ? 'email' : 'referral';
+  return url + (url.indexOf('?') === -1 ? '?' : '&') + 'utm_source=' + source + '&utm_medium=' + medium +
+    '&utm_campaign=github-scripts&utm_content=' + UTM_CONTENT;
 }
 
 function clip(s, max, suffix) {

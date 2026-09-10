@@ -21,7 +21,7 @@ Google k tomu nedal žádnou diagnostiku. V rozhraní nenajdete seznam „tyhle 
 
 Prahy v nastavení jsou volba, ne definice Googlu. Google žádné procento neuvádí, jeho podmínky jsou dvě: strategie s cílem a stav „Omezeno rozpočtem".
 
-Metodika, prahy a proč tři signály místo jednoho: [karelhuk.cz/blog/jak-pohlidat-zmenu-google-biddingu-2026](https://karelhuk.cz/blog/jak-pohlidat-zmenu-google-biddingu-2026)
+Metodika, prahy a proč tři signály místo jednoho: [karelhuk.cz/blog/jak-pohlidat-zmenu-google-biddingu-2026](https://karelhuk.cz/blog/jak-pohlidat-zmenu-google-biddingu-2026?utm_source=github&utm_medium=referral&utm_campaign=github-scripts&utm_content=bid-target-check)
 
 ## Pro koho je to
 
@@ -82,7 +82,7 @@ Google Ads script that flags campaigns exposed to the 17 August 2026 target-bidd
 
 Four output sections, because each needs a different response: **affected** (target, budget-limited, overshooting — volume drops here), **ticking bombs** (target far from reality but not yet budget-limited), **no target** (throttled but nothing to enforce), and **undetermined** (missing data, which is not the same as fine).
 
-Read-only by default. Optional target correction is guarded by mandatory absolute bounds, because repeated runs can walk a target upward without them. Runs on a single account or a whole MCC. Method and thresholds: [karelhuk.cz/en/blog/how-to-check-google-bidding-change-2026](https://karelhuk.cz/en/blog/how-to-check-google-bidding-change-2026)
+Read-only by default. Optional target correction is guarded by mandatory absolute bounds, because repeated runs can walk a target upward without them. Runs on a single account or a whole MCC. Method and thresholds: [karelhuk.cz/en/blog/how-to-check-google-bidding-change-2026](https://karelhuk.cz/en/blog/how-to-check-google-bidding-change-2026?utm_source=github&utm_medium=referral&utm_campaign=github-scripts&utm_content=bid-target-check)
 
 ## Licence
 
@@ -92,4 +92,4 @@ MIT, viz [LICENSE](LICENSE). Software je poskytován „tak jak je", bez záruky
 
 **Author: Karel Huk**
 E-commerce PPC & Google Ads automation
-[https://karelhuk.cz](https://karelhuk.cz)
+[https://karelhuk.cz](https://karelhuk.cz/?utm_source=github&utm_medium=referral&utm_campaign=github-scripts&utm_content=bid-target-check)
